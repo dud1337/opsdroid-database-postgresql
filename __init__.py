@@ -92,11 +92,7 @@ class DatabasePostgres(Database):
 
         async with self.connection.transaction():
             await self.connection.execute(
-                "DELETE FROM {} WHERE key = $1".format(table_name),
-                key
-            )
-            await self.connection.execute(
-                "INSERT INTO {} VALUES ($1, $2)".format(table_name),
+                "UPDATE {} SET data = $2 WHERE key = $1".format(table_name),
                 key, json_data
             )
 
