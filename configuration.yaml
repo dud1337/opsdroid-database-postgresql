@@ -1,0 +1,28 @@
+## Set the logging level
+logging:
+  level: debug
+  console: false
+  extended: true
+
+## Configure the web server
+web:
+  host: '0.0.0.0'
+  disable_web_index_handler_in_root: true
+  port: 8080
+
+connectors:
+  shell:
+
+databases:
+  postgresql:
+    host: 127.0.0.1
+    port: 5432
+    user: opsdroid_user
+    password: changeme
+    database: opsdroid_db
+
+skills:
+  testskill:
+    path: /path/to/example_skill
+    table_name: "custom_table_name"
+
